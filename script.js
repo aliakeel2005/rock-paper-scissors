@@ -36,16 +36,19 @@ function playRound(playerSelection, computerSelection) {
          return "You win! scissors beat paper"
       } 
 } 
-function game() { const playerSelection = ""
+const playerSelection = ""
    const computerSelection = getComputerChoice()
+function game() { 
    console.log(playRound(playerSelection, computerSelection));
    console.log(playRound(playerSelection, computerSelection));
    console.log(playRound(playerSelection, computerSelection));
    console.log(playRound(playerSelection, computerSelection));
    console.log(playRound(playerSelection, computerSelection));
 }
-
 console.log(game())
+/*const playerSelection = "";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));*/
 
 
 
