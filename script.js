@@ -6,3 +6,21 @@ function getComputerChoice() {
    return x
 }
 
+function playround(playerSelection, computerSelection) {
+   
+   computerSelection = getComputerChoice;
+   playerSelection = prompt("rock paper or scissors?", )
+   
+   /*draw*/ 
+   if(playerSelection === computerSelection) {
+     return "Draw! " + playerSelection + " and " + computerSelection
+   };
+
+   /*win*/
+   if(playerSelection === "rock" && computerSelection === "scissors" || 
+   playerSelection === "paper" && computerSelection === "rock" ||
+   playerSelection === "scissors" && computerSelection === "paper") {
+     return "You win! " + playerSelection + " beats " + computerSelection
+   };
+}
+console.log(playround())
