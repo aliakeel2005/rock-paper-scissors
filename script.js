@@ -1,41 +1,38 @@
 function getComputerChoice() {
-   let x = Math.floor(Math.random() * 3) + 1;
-   if(x === 3) {x = "scissors"}
-   else if(x === 2) {x = "paper"}
-   else if(x === 1) {x = "rock"};
-   return x
+  const choices = ["rock", "paper", "scissors"]
+  const randomIndex = Math.floor(Math.random() * choices.length) 
+  return choices[randomIndex]
 }
 let playerScore = 0;
    let computerScore = 0;
 function playround(playerSelection, computerSelection) {
    computerSelection = getComputerChoice();
-   playerSelection = prompt("rock paper or scissors?", ).toLowerCase()
    
    /*draw*/ 
    if(playerSelection === computerSelection) {
-     return "Draw! " + playerSelection + " and " + computerSelection
-   };
+      results.textContent = "Draw! " + playerSelection + " and " + computerSelection;
+   }
 
    /*win*/
-   if(playerSelection === "rock" && computerSelection === "scissors" || 
+   else if(playerSelection === "rock" && computerSelection === "scissors" || 
    playerSelection === "paper" && computerSelection === "rock" ||
    playerSelection === "scissors" && computerSelection === "paper") {
-     console.log("You win! " + playerSelection + " beats " + computerSelection); playerScore++;
+      results.textContent = "You win! " + playerSelection + " beats " + computerSelection; playerScore++;
    } 
    /*lose*/
-   else { console.log("You lose! " + computerSelection + " beats " + playerSelection)
+   else { results.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
 computerScore++;};
-console.log("player score:" + playerScore);
-console.log('computer score:' + computerScore)
+scores.textContent = "the current score is: " + ("player score: " + `${playerScore} `) +
+('computer score: ' + computerScore);
+
+
+if(playerScore === 5 || computerScore === 5) 
+{if(playerScore > computerScore){winner.textContent = "you win!"} else{winner.textContent = "you lose, the computer wins"}
+}
 
 }
 
 function game() {
-   console.log(playround())
-   console.log(playround())
-   console.log(playround())
-   console.log(playround())
-   console.log(playround())
    if(playerScore > computerScore) {
       console.log("You win the game!")
    } else if(playerScore < computerScore) {
@@ -43,4 +40,12 @@ function game() {
    }
 }
 
-console.log(game())
+const rockButton = document.querySelector('.rock')
+const paperButton = document.querySelector('.paper')
+const scissorsButton = document.querySelector('.scissors')
+const results = document.querySelector('.results')
+const scores = document.querySelector('.scores')
+const winner = document.querySelector('.winner')
+rockButton.addEventListener('click', () => {playround("rock")})
+paperButton.addEventListener('click', () => {playround("paper")})
+scissorsButton.addEventListener('click', () => {playround("scissors")})
