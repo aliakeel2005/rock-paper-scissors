@@ -31,14 +31,13 @@ if(playerScore === 5 || computerScore === 5)
 rockButton.style.display = "none"
 paperButton.style.display = "none"
 scissorsButton.style.display = "none"
+}
+
+}
 const reset = document.createElement('button')
 reset.textContent = "reset"
 document.body.appendChild(reset)
 reset.addEventListener('click', resetGame)
-}
-
-}
-
 function resetGame() {rockButton.style.display = "inline";
 paperButton.style.display = "inline";
 scissorsButton.style.display = "inline";
