@@ -27,18 +27,23 @@ scores.textContent = "the current score is: " + ("player score: " + `${playerSco
 
 
 if(playerScore === 5 || computerScore === 5) 
-{if(playerScore > computerScore){winner.textContent = "you win!"} else{winner.textContent = "you lose, the computer wins"}
+{if(playerScore > computerScore){winner.textContent = "you win!"} else{winner.textContent = "you lose, the computer wins"};
+rockButton.style.display = "none"
+paperButton.style.display = "none"
+scissorsButton.style.display = "none"
+const reset = document.createElement('button')
+reset.textContent = "reset"
+document.body.appendChild(reset)
+reset.addEventListener('click', resetGame)
 }
 
 }
 
-function game() {
-   if(playerScore > computerScore) {
-      console.log("You win the game!")
-   } else if(playerScore < computerScore) {
-      console.log("You lost the game.")
-   }
-}
+function resetGame() {rockButton.style.display = "inline";
+paperButton.style.display = "inline";
+scissorsButton.style.display = "inline";
+playerScore = 0;
+computerScore = 0;}
 
 const rockButton = document.querySelector('.rock')
 const paperButton = document.querySelector('.paper')
