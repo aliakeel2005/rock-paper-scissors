@@ -42,7 +42,10 @@ function resetGame() {rockButton.style.display = "inline";
 paperButton.style.display = "inline";
 scissorsButton.style.display = "inline";
 playerScore = 0;
-computerScore = 0;}
+computerScore = 0;
+scores.textContent = "the current score is: " + ("player score: " + `${playerScore} `) +
+('computer score: ' + computerScore);
+results.textContent = ''}
 
 const rockButton = document.querySelector('.rock')
 const paperButton = document.querySelector('.paper')
