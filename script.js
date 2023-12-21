@@ -5,32 +5,50 @@ function getComputerChoice() {
 }
 let playerScore = 0;
    let computerScore = 0;
+   // results.style.display = "none"
 function playround(playerSelection, computerSelection) {
    computerSelection = getComputerChoice();
-   
+   const computerPickImage = new Image()
+   const imageMapping = {
+      rock: "rock.png",
+      paper: "paper.png",
+      scissors: "scissors.png",
+   }
+   computerPickImage.src = imageMapping[computerSelection]
+   // results.textContent = ''
+   // results.appendChild(computerPickImage)
+   computerPickImage.style.width = '100px'; // Adjust the size as needed
+   computerPickImage.style.height = '75px'
    /*draw*/ 
    if(playerSelection === computerSelection) {
-      results.textContent = "Draw! " + playerSelection + " and " + computerSelection;
+   text.innerHTML = ''
+   text.appendChild(computerPickImage)
    }
 
    /*win*/
    else if(playerSelection === "rock" && computerSelection === "scissors" || 
    playerSelection === "paper" && computerSelection === "rock" ||
    playerSelection === "scissors" && computerSelection === "paper") {
-      results.textContent = "You win! " + playerSelection + " beats " + computerSelection; playerScore++;
+      text.innerHTML = ''
+      text.appendChild(computerPickImage); playerScore++;
    } 
    /*lose*/
-   else { results.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
+   else { 
+      text.innerHTML = ''
+      text.appendChild(computerPickImage);
 computerScore++;};
 scores.textContent = "the current score is: " + ("player score: " + `${playerScore} `) +
 ('computer score: ' + computerScore);
 
 
 if(playerScore === 5 || computerScore === 5) 
-{if(playerScore > computerScore){winner.textContent = "you win!"} else{winner.textContent = "you lose, the computer wins"};
+{if(playerScore > computerScore){winner.textContent = "YOU WIN!"; winner.style.cssText = winnerStyles}
+else{winner.textContent = "You lose, the computer wins"; winner.style.cssText = loserStyles};
 rockButton.style.display = "none"
 paperButton.style.display = "none"
 scissorsButton.style.display = "none"
+text.innerHTML = ''
+results.style.display = "none"
 }
 
 }
@@ -45,14 +63,26 @@ playerScore = 0;
 computerScore = 0;
 scores.textContent = "the current score is: " + ("player score: " + `${playerScore} `) +
 ('computer score: ' + computerScore);
-results.textContent = ''}
+results.style.display = "block"
+text.textContent = ''
+winner.textContent = ''}
 
 const rockButton = document.querySelector('.rock')
 const paperButton = document.querySelector('.paper')
 const scissorsButton = document.querySelector('.scissors')
 const results = document.querySelector('.results')
+const text = document.querySelector('.text')
 const scores = document.querySelector('.scores')
 const winner = document.querySelector('.winner')
 rockButton.addEventListener('click', () => {playround("rock")})
 paperButton.addEventListener('click', () => {playround("paper")})
 scissorsButton.addEventListener('click', () => {playround("scissors")})
+
+const winnerStyles = `
+display: block;
+color: green;
+font-weight: bolder;`;
+const loserStyles = `
+display: block;
+color: red;
+font-weight: bolder;`
