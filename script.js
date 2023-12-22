@@ -10,9 +10,9 @@ function playround(playerSelection, computerSelection) {
    computerSelection = getComputerChoice();
    const computerPickImage = new Image()
    const imageMapping = {
-      rock: "rock.png",
-      paper: "paper.png",
-      scissors: "scissors.png",
+      rock: "images/hrock.svg",
+      paper: "images/hpaper.svg",
+      scissors: "images/hscissors.svg",
    }
    computerPickImage.src = imageMapping[computerSelection]
    // results.textContent = ''
