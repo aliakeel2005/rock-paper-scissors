@@ -52,7 +52,7 @@ scores.textContent = ("player score: " + `${playerScore} `) +
 ('computer score: ' + computerScore);
 
 
-if(playerScore === 5 || computerScore === 5) 
+if(playerScore === 3 || computerScore === 3) 
 {if(playerScore > computerScore){winner.textContent = "YOU WIN!"; winner.style.cssText = winnerStyles}
 else{winner.textContent = "You lose, the computer wins"; winner.style.cssText = loserStyles};
 rockButton.style.display = "none"
@@ -65,8 +65,10 @@ end2.style.display = "none"
 
 }
 const reset = document.createElement('button')
+reset.style.cssText = "margin-top: 30px;"
+const container = document.querySelector('.container')
 reset.textContent = "reset"
-document.body.appendChild(reset)
+container.appendChild(reset)
 reset.addEventListener('click', resetGame)
 function resetGame() {rockButton.style.display = "inline";
 paperButton.style.display = "inline";
@@ -76,6 +78,8 @@ computerScore = 0;
 scores.textContent = ("player score: " + `${playerScore} `) +
 ('computer score: ' + computerScore);
 end1.style.display = "block"
+end2.style.display = 'block'
+player.textContent = ''
 text.textContent = ''
 winner.textContent = ''}
 
