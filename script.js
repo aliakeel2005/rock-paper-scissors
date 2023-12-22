@@ -9,20 +9,27 @@ let playerScore = 0;
 function playround(playerSelection, computerSelection) {
    computerSelection = getComputerChoice();
    const computerPickImage = new Image()
+   const playerPickImage = document.createElement('img')
    const imageMapping = {
       rock: "images/hrock.svg",
       paper: "images/hpaper.svg",
       scissors: "images/hscissors.svg",
    }
    computerPickImage.src = imageMapping[computerSelection]
+   playerPickImage.src = imageMapping[playerSelection]
    // results.textContent = ''
    // results.appendChild(computerPickImage)
    computerPickImage.style.width = '100px'; // Adjust the size as needed
-   computerPickImage.style.height = '75px'
+   computerPickImage.style.height = '75px';
+   playerPickImage.style.width = '100px'
+   playerPickImage.style.height= '75px'
+
    /*draw*/ 
    if(playerSelection === computerSelection) {
    text.innerHTML = ''
+   player.innerHTML = ''
    text.appendChild(computerPickImage)
+   player.appendChild(playerPickImage)
    }
 
    /*win*/
@@ -30,12 +37,16 @@ function playround(playerSelection, computerSelection) {
    playerSelection === "paper" && computerSelection === "rock" ||
    playerSelection === "scissors" && computerSelection === "paper") {
       text.innerHTML = ''
-      text.appendChild(computerPickImage); playerScore++;
+      player.innerHTML = ''
+      text.appendChild(computerPickImage);
+      player.appendChild(playerPickImage); playerScore++;
    } 
    /*lose*/
    else { 
       text.innerHTML = ''
+      player.innerHTML = ''
       text.appendChild(computerPickImage);
+      player.appendChild(playerPickImage);
 computerScore++;};
 scores.textContent = "the current score is: " + ("player score: " + `${playerScore} `) +
 ('computer score: ' + computerScore);
@@ -74,6 +85,7 @@ const results = document.querySelector('.results')
 const text = document.querySelector('.text')
 const scores = document.querySelector('.scores')
 const winner = document.querySelector('.winner')
+const player = document.querySelector('.player')
 rockButton.addEventListener('click', () => {playround("rock")})
 paperButton.addEventListener('click', () => {playround("paper")})
 scissorsButton.addEventListener('click', () => {playround("scissors")})
