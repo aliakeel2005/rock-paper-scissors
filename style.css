@@ -4,6 +4,10 @@
     padding: 0;
     background-color: #FFE194;
 }
+h1 {
+    display: flex;
+    justify-content: center;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -13,4 +17,9 @@
 }
 .player {
     display: flex;
+}
+.results {
+    height: 75px;
+    width: 100px;
+    margin-top: 15px;
 }

@@ -48,7 +48,7 @@ function playround(playerSelection, computerSelection) {
       text.appendChild(computerPickImage);
       player.appendChild(playerPickImage);
 computerScore++;};
-scores.textContent = "the current score is: " + ("player score: " + `${playerScore} `) +
+scores.textContent = ("player score: " + `${playerScore} `) +
 ('computer score: ' + computerScore);
 
 
@@ -59,7 +59,8 @@ rockButton.style.display = "none"
 paperButton.style.display = "none"
 scissorsButton.style.display = "none"
 text.innerHTML = ''
-results.style.display = "none"
+end1.style.display = "none";
+end2.style.display = "none"
 }
 
 }
@@ -72,16 +73,17 @@ paperButton.style.display = "inline";
 scissorsButton.style.display = "inline";
 playerScore = 0;
 computerScore = 0;
-scores.textContent = "the current score is: " + ("player score: " + `${playerScore} `) +
+scores.textContent = ("player score: " + `${playerScore} `) +
 ('computer score: ' + computerScore);
-results.style.display = "block"
+end1.style.display = "block"
 text.textContent = ''
 winner.textContent = ''}
 
 const rockButton = document.querySelector('.rock')
 const paperButton = document.querySelector('.paper')
 const scissorsButton = document.querySelector('.scissors')
-const results = document.querySelector('.results')
+const end1 = document.querySelector('.end1')
+const end2 = document.querySelector('.end2')
 const text = document.querySelector('.text')
 const scores = document.querySelector('.scores')
 const winner = document.querySelector('.winner')
